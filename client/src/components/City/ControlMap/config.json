@@ -1,0 +1,51 @@
+{
+    "center": [
+        34.8953,
+        31.9514
+    ],
+    "geojsonObjects": [{
+        "type": "FeatureCollection",
+        "features": [{
+            "type": "Feature",
+            "properties": {
+                "kind": "city",
+                "name": "TelAviv",
+                "state": "IL"
+            },
+            "geometry": {
+                "type": "MultiPolygon",
+                "coordinates": [
+                    [
+                        [
+                            [
+                                34.77,
+                                32.09
+                            ],
+                            [
+                                34.78,
+                                32.09
+                            ],
+                            [
+                                34.78,
+                                32.08
+                            ],
+                            [
+                                34.77,
+                                32.08
+                            ]
+                        ]
+                    ]
+                ]
+            }
+        }]
+    }],
+    "Markers": [
+        [
+            34.8953,
+            31.9514
+        ]
+    ],
+    "markerImage24": "https://cdn2.iconfinder.com/data/icons/social-media-and-payment/64/-47-24.png",
+    "markerImage32": "https://cdn2.iconfinder.com/data/icons/social-media-and-payment/64/-47-32.png",
+    "markerImage64": "https://cdn2.iconfinder.com/data/icons/social-media-and-payment/64/-47-64.png"
+}
