@@ -1,5 +1,5 @@
 import * as actionTypes from '../actions/units.actions';
-import addMarkers from '../../components/City/ControlMap/Markers';
+import addMarkers from '../../components/WeatherMap/Markers';
 
 const { SET_UNITS } = actionTypes;
 

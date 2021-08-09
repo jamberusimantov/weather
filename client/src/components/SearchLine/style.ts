@@ -1,5 +1,5 @@
 import { makeStyles } from '@material-ui/core/styles';
-import { colors } from '../../../style/style.app'
+import { colors } from '../../style/style.app'
 
 export default makeStyles((theme) => ({
   paper: {
@@ -29,8 +29,8 @@ export default makeStyles((theme) => ({
     wordBreak: 'keep-all',
     paddingBottom: theme.spacing(1),
     paddingTop: theme.spacing(1),
-    '&:hover':{
-      cursor:'pointer',
+    '&:hover': {
+      cursor: 'pointer',
     }
   },
   flag: {
@@ -49,15 +49,29 @@ export default makeStyles((theme) => ({
   buttonSubmit: {
     position: 'relative',
     right: 0,
-    background: colors.aero,
-    marginLeft: theme.spacing(1)
+    marginLeft: theme.spacing(1),
+    fontSize: '1em',
+    color: '#00BFFF',
+    '&:hover': {
+      background: colors.black,
+      cursor: 'pointer',
+      color: "#FFFB00",
+    }
   },
-  buttonSubmitMobile: {
+  buttonsMobile: {
+    marginRight: theme.spacing(1),
     position: 'absolute',
     right: 0,
-    padding: theme.spacing(1),
-    marginRight: theme.spacing(1),
-    marginLeft: theme.spacing(1),
-    background: colors.aero,
+  },
+  btnMobile: {
+    paddingTop: theme.spacing(1),
+    paddingBottom: theme.spacing(1),
+    color: '#00BFFF',
+    borderRadius:0,
+    '&:hover': {
+      background: colors.black,
+      cursor: 'pointer',
+      color: "#FFFB00",
+    }
   },
 }));

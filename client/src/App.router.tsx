@@ -12,11 +12,11 @@ export default function AppRouter(props: any) {
                 <Home />
             </Route>
 
-            <Route exact path="/city/:id">
-                <City/>
+            <Route path="/city:query">
+                <City />
             </Route>
 
-            <Route>
+            <Route >
                 <Error />
             </Route>
 

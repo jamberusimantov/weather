@@ -1,42 +1,57 @@
 const validator = require('./city_validation')
 const citiesCollection = require("./city_model");
-const utils = require('../../utils/ctrl.utils');
-const { successHandler, failHandler, errorHandler } = utils;
-const cityList = require('../../utils/city.list.json').list
-const { validateCityId, validateCityName } = validator;
+const utils = require('./city.utils');
+const { successHandler, failHandler, errorHandler, fetchNewCity } = utils;
+const cityList = require('./city.list.json').list
+const { validateCityName, validateCityId } = validator;
 
-
-const getCityLocation = async(req, res) => {
+const getCityObj = async(req, res) => {
+    console.log('get City Obj');
     const city = req.params;
     let cityArr = [];
-    if (!validateCityName(city).isQuery) return failHandler(city, res, 'getCity')
+    const valid = validateCityName(city)
+    if (!valid.isQuery) return failHandler(city, res, 'getCityObj')
     try {
-        console.log(`get id for city: ${city.name} ...`);
-        cityList.forEach(element => {
-            element.name.toLowerCase().indexOf(city.name.toLowerCase()) === 0 &&
-                cityArr.push(element)
+        cityList.forEach((element) => {
+            if (cityArr.length < 5) {
+                valid.query.name &&
+                    element.name.toLowerCase().indexOf(valid.query.name.toLowerCase()) === 0 &&
+                    cityArr.push(element);
+            }
         });
-        switch (true) {
-            case (cityArr.length === 1):
-                console.log(`success get id for city: ${city.name}`);
-                return successHandler(cityArr, res, 'getCityId');
-            case (cityArr.length > 1):
-                console.log(`multiple results for city: ${city.name}`);
-                return successHandler(cityArr.length > 5 ? cityArr.splice(0, 5) : cityArr, res, 'getCityId');
-            default:
-                console.log(`failure get id for city: ${city.name}`);
-                return failHandler(city.name, res, 'getCityId')
-        }
-
+        successHandler(cityArr, res, 'getCityObj');
     } catch (error) {
-        console.log(`error get city ${city.name}...`);
-        errorHandler(error, res, 'getCity');
+        errorHandler(error, res, 'getCityObj');
     } finally {}
 }
+const getCityWeather = async(req, res) => {
+    console.log('get City weather');
+    const city = req.params;
+    let cityArr = [];
+    const valid = validateCityId(city)
+    if (!valid.isQuery) return failHandler(city, res, 'getCityWeather')
+    try {
+        const response = await fetchNewCity(valid.query.id);
+        if (!response) failHandler(city, res, 'getCityWeather');
+        return successHandler(response, res, 'getCityWeather');
+    } catch (error) {
+        errorHandler(error, res, 'getCityWeather');
+    } finally {}
+}
+
+
+
+
+
+
+
+
+
 const getCity = async(req, res) => {
     const city = req.params;
     if (!city) return failHandler(city, res, 'getCity')
     if (!validateCityName(city).isQuery) return failHandler('no city', res, 'getCity')
+    console.log(`get city ${city.name}...`);
     try {
         const post = await citiesCollection.findOne({ name: city.name });
         if (!post) return failHandler(city.id, res, 'getCity')
@@ -65,4 +80,4 @@ const postCity = async(req, res) => {
     } finally {}
 }
 
-module.exports = { getCity, postCity, getCityLocation }
+module.exports = { getCity, postCity, getCityObj, getCityWeather }

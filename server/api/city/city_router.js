@@ -1,10 +1,10 @@
 const cityRouter = require('express').Router();
 const cityCtrl = require('./city_ctrl');
-const { getCity, postCity, getCityLocation } = cityCtrl
+const { getCity, postCity, getCityObj, getCityWeather } = cityCtrl
 
 
-cityRouter.get('/cityObj/:name', getCityLocation);
-
+cityRouter.get('/cityObjSearch/:name', getCityObj);
+cityRouter.get('/cityWeatherSearch/:id', getCityWeather);
 
 
 cityRouter.get('/city/:name', getCity);

@@ -10,6 +10,8 @@ const path = require("path");
 
 const app = express();
 const PORT = process.env.PORT || 4201;
+
+const { fetchInterval } = require('./api/city/city.utils')
 const city_router = require('./api/city/city_router')
 app.set("trust proxy", true);
 
@@ -35,4 +37,7 @@ if (process.env.NODE_ENV === "production") {
         res.sendFile(path.join(__dirname, "../client/build", "index.html"));
     });
 }
+
 app.use('/cities', city_router);
+
+fetchInterval();

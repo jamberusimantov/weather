@@ -36,11 +36,11 @@ const Hourly = (props: any) => {
                             </Grid>
 
 
-                            {windowWidth > 300 && (<Grid item className={classes.listTd}>
+                            {windowWidth > 500 && (<Grid item className={classes.listTd}>
                                 {`${humidity}%`}
                             </Grid>)}
 
-                            {windowWidth > 500 && (<Grid item className={classes.listTd}>
+                            {windowWidth > 600 && (<Grid item className={classes.listTd}>
                                 {getMetric.temp(feels_like, unitsData.name)}
                             </Grid>)}
 
@@ -50,7 +50,7 @@ const Hourly = (props: any) => {
                                     src={icon && `http://openweathermap.org/img/wn/${icon}@2x.png`} />
                             </Grid>
 
-                            {windowWidth > 400 && (<Grid item className={classes.listTd}>
+                            {windowWidth > 500 && (<Grid item className={classes.listTd}>
                                 {`${(description)}`}
                             </Grid>)}
 

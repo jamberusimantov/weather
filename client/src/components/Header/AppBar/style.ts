@@ -2,7 +2,6 @@ import { makeStyles } from '@material-ui/core/styles';
 import { colors } from '../../../style/style.app';
 
 const circle = 'circle';
-// const deg = `${90}deg`;
 
 const hours = new Date().getHours()
 const color1 = `rgba(255,255,255,1) 0%`;
@@ -35,4 +34,22 @@ export const style = makeStyles(theme => ({
   image: {
     marginLeft: '15px',
   },
+  homeBtn: {
+    fontSize: '3em',
+    color: '#00BFFF',
+    padding: theme.spacing(1),
+    '&:hover': {
+      cursor: 'pointer',
+      color: "#FFFB00",
+    }
+  },
+  homeBtnContainer: {
+    width: '100%',
+    position: 'absolute',
+    display: 'flex',
+    justifyContent: 'flex-end',
+    zIndex:1001,
+  },
+
+
 }));

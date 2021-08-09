@@ -1,8 +1,8 @@
 import React from 'react'
 import { style } from './style';
 import { AppBar, Typography } from '@material-ui/core';
+import { HomeOutlined } from '@material-ui/icons';
 import Cloud from './Cloud';
-
 
 export default function TopBar(props?: any) {
     const classes = style();
@@ -14,6 +14,12 @@ export default function TopBar(props?: any) {
             position='relative'
             color='inherit' >
 
+            <div className={classes.homeBtnContainer}>
+                <a href='/' >
+                    <HomeOutlined className={classes.homeBtn} />
+                </a>
+            </div>
+
             <Typography
                 variant='h3'
                 align='center'
@@ -21,14 +27,12 @@ export default function TopBar(props?: any) {
                 Weather
             </Typography>
             <img
-                src='http://openweathermap.org/img/wn/03n@2x.png'
-                alt='logo'
-                height={`${clientHeight}`}
-                width={`${clientHeight}`}
-                className={classes.image} />
-
+                src="/assets/home.png"
+                alt="logo"
+                className={classes.image}
+                height={`${clientHeight * 0.6}`}
+                width='auto' />
             <Cloud />
-
         </AppBar>
     )
 }

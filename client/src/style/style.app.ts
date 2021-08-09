@@ -21,7 +21,18 @@ export const style = makeStyles(theme => ({
     minHeight: '100vh',
     paddingTop: '30px',
   },
+  flexLoader: {
+    display: 'flex',
+    justifyContent: 'center',
+    alignItems: 'center',
+    width: '100vw',
+    height: '100vh',
+    position: 'fixed',
+    zIndex: 1000,
+    top: 0,
+    left:0,
+    right:0,
+    bottom:0,
 
-
-
+  },
 }));

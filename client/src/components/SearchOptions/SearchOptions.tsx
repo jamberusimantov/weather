@@ -2,7 +2,7 @@ import React from 'react'
 import { style } from './style';
 import { Paper, Button } from '@material-ui/core';
 import { useDispatch, useSelector } from "react-redux";
-import { setUnits } from '../../../store/actions/units.actions'
+import { setUnits } from '../../store/actions/units.actions'
 
 
 export default function SearchOptions(props: any) {
@@ -15,7 +15,7 @@ export default function SearchOptions(props: any) {
         dispatch(setUnits({ name: unit }))
     };
 
-    return (
+    return (<>{windowWidth > 800 &&
         <Paper className={classes.unitToggle}>
             <Button
                 className={`${classes.unit} ${unitsData.name === 'Metric' && classes.current}`}
@@ -28,5 +28,5 @@ export default function SearchOptions(props: any) {
                 {windowWidth > 800 ? 'Imperial' : ''} °F, mph
             </Button>
         </Paper>
-    )
+    }</>)
 }

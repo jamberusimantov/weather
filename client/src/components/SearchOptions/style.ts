@@ -1,5 +1,5 @@
 import { makeStyles } from '@material-ui/core/styles';
-import { colors } from '../../../style/style.app';
+import { colors } from '../../style/style.app';
 
 export const style = makeStyles(theme => ({
   unitToggle: {
@@ -11,11 +11,15 @@ export const style = makeStyles(theme => ({
     padding: theme.spacing(1),
   },
   unit: {
-    padding: theme.spacing(1),
     width:'50%',
-
+    color: '#00BFFF',
+    '&:hover': {
+      background: colors.black,
+      cursor: 'pointer',
+      color: "#FFFB00",
+    }
   },
   current: {
-    background: colors.aero,
+    background: '#ddd',
   },
 }));
