@@ -17,7 +17,7 @@ const city = (
             dt_txt: '',
             wind: { speed: 0, deg: 0, gust: 0 },
             clouds: { all: 0 },
-            visibility:0,
+            visibility: 0,
             weather: [{ id: 0, main: '', description: '', icon: '' }],
             main: {
                 temp: 0,
@@ -31,11 +31,9 @@ const city = (
                 temp_kf: 0
             }
         }],
-    },
-    action: any) => {
+    }, action: { type: string, payload: any }) => {
     switch (action.type) {
-        case SET_CITY: return action.payload ;
-
+        case SET_CITY: return { ...city, ...action.payload };
         default: return city;
     }
 }

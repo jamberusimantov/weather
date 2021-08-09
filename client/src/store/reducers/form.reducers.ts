@@ -9,7 +9,7 @@ const reducer = (
     },
     action: any) => {
         switch (action.type) {
-            case SET_FORM: return action.payload ;
+            case SET_FORM: return {...formData, ...action.payload };
     
             default: return formData;
         }
