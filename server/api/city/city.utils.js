@@ -63,17 +63,18 @@ const fetchInterval = async() => {
     const update = async() => {
         try {
             const response = await fetchNewCity(293397);
-            if (!response) return console.log('fetchNewCity return falsy ');
+            if (!response || !response.list) return console.log('fetchNewCity failure');
             const response2 = await updateCityList(293397, response.list)
-            if (!response2) return console.log('updateCityList return falsy ');
+            if (!response2 || !response.id) return console.log('updateCityList failure');
+            return response2
         } catch (error) { console.error(error); } finally {};
     }
 
     try {
         console.log('fetch default city - 5 days Interval');
-        update();
-        setInterval(() => {
-            update();
+        await update();
+        setInterval(async() => {
+            await update();
         }, interval)
 
     } catch (error) {
