@@ -65,7 +65,7 @@ const fetchInterval = async() => {
             const response = await fetchNewCity(293397);
             if (!response || !response.list) return console.log('fetchNewCity failure');
             const response2 = await updateCityList(293397, response.list)
-            if (!response2 || !response.id) return console.log('updateCityList failure');
+            if (!response2 || !response2.id) return console.log('updateCityList failure');
             return response2
         } catch (error) { console.error(error); } finally {};
     }
