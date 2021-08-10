@@ -54,12 +54,12 @@ const getCity = async(req, res) => {
     console.log(`get city ${city.name}...`);
     try {
         const post = await citiesCollection.findOne({ name: city.name });
-        if (!post) return failHandler(city.id, res, 'getCity')
+        if (!post) return failHandler(city.name, res, 'getCity')
         console.log(`send city ${post.name}...`);
         successHandler(post, res, 'getCity');
     } catch (error) {
-        errorHandler(error, res, 'getCity');
         console.log(`error get city ${city.name}...`);
+        errorHandler(error, res, 'getCity');
     } finally {}
 }
 const postCity = async(req, res) => {

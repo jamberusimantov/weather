@@ -35,8 +35,9 @@ class Weather {
         if (!name) return;
         const url_name = `${baseURL}/cities/city/${name}`
         try {
-            return await axios.get(url_name)
-        } catch (error) { console.error(error) }
+            const res = await axios.get(url_name)
+            return res.data;
+        } catch (error) { return { success: false, error } }
     }
     postCity = async (city: { name: string }) => {
         const { name } = city;
