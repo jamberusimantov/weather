@@ -36,7 +36,8 @@ const App = () => {
         const getDefaultCity = async () => {
             console.log('get default City...');
             const res = await getCity({ name: "Tel Aviv" })
-            return console.log({ res });}
+            console.log({ fetch: res });
+        }
         getDefaultCity();
     }, [dispatch, getCity])
 
