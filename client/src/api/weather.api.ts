@@ -37,7 +37,7 @@ class Weather {
         try {
             const res = await axios.get(url_name)
             if (!res) return { success: false, data: {} }
-            return { success: true, data: res.data }
+            return res.data
         } catch (error) { return { success: false, error } }
     }
     postCity = async (city: { name: string }) => {

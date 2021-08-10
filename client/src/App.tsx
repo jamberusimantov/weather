@@ -45,8 +45,8 @@ const App = () => {
             dispatch(setCity(data.data));
             dispatch(setUnits({
                 zoom: 13,
-                center: [data.data?.coord?.lon, data.data?.coord?.lat],
-                features: addMarkers([[data.data?.coord?.lon, data.data?.coord?.lat]]),
+                center: [data.coord?.lon, data.coord?.lat],
+                features: addMarkers([[data.coord?.lon, data.coord?.lat]]),
             }))
         }
         getDefaultCity();
