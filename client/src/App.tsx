@@ -40,6 +40,7 @@ const App = () => {
             const { success, data, error } = res
             if (error) return console.log({ error });
             if (!success) return console.log({ data });
+            console.log({ res });
             console.log('save default City...');
             dispatch(setCity(data.data));
             dispatch(setUnits({
