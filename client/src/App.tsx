@@ -74,54 +74,54 @@ const App = () => {
                 className={classes.container}>
                 <Header />
                 <Grow in>
-                    {cityData.id ?
-                        <Container>
+                    {/* {cityData.id ? */}
+                    <Container>
+                        <Grid
+                            container
+                            spacing={3}
+                            justifyContent='space-between'
+                            alignItems='stretch'>
+
+                            {/* city search */}
+                            {window.location.pathname === '/' && <Grid
+                                item
+                                xs={12}
+                                sm={windowWidth < 800 ? 12 : 8}>
+                                <SearchLine />
+                            </Grid>}
+
+                            {/* units toggle */}
+                            {window.location.pathname === '/' && windowWidth > 800 && <Grid
+                                item
+                                xs={12}
+                                sm={4}>
+                                <SearchOptions />
+                            </Grid>}
+
+
+                            {/* brief */}
                             <Grid
-                                container
-                                spacing={3}
-                                justifyContent='space-between'
-                                alignItems='stretch'>
-
-                                {/* city search */}
-                                {window.location.pathname === '/' && <Grid
-                                    item
-                                    xs={12}
-                                    sm={windowWidth < 800 ? 12 : 8}>
-                                    <SearchLine />
-                                </Grid>}
-
-                                {/* units toggle */}
-                                {window.location.pathname === '/' && windowWidth > 800 && <Grid
-                                    item
-                                    xs={12}
-                                    sm={4}>
-                                    <SearchOptions />
-                                </Grid>}
-
-
-                                {/* brief */}
-                                <Grid
-                                    item
-                                    xs={12}
-                                    sm={windowWidth < 800 ? 12 : 4}>
-                                    <Brief />
-                                </Grid>
-
-                                {/* map */}
-                                <Grid
-                                    item
-                                    xs={12}
-                                    sm={windowWidth < 800 ? 12 : 8}>
-                                    <WeatherMap
-                                        config={{ zoom, center, features, showMarker }} />
-                                </Grid>
+                                item
+                                xs={12}
+                                sm={windowWidth < 800 ? 12 : 4}>
+                                <Brief />
                             </Grid>
-                            <Router />
-                        </Container>
-                        :
-                        <div className={classes.flexLoader}>
-                            <Loader.LoaderSmall />
-                        </div>}
+
+                            {/* map */}
+                            <Grid
+                                item
+                                xs={12}
+                                sm={windowWidth < 800 ? 12 : 8}>
+                                <WeatherMap
+                                    config={{ zoom, center, features, showMarker }} />
+                            </Grid>
+                        </Grid>
+                        <Router />
+                    </Container>
+                    {/* : */}
+                    {/* <div className={classes.flexLoader}> */}
+                    {/* <Loader.LoaderSmall /> */}
+                    {/* </div>} */}
                 </Grow>
             </Container>
         </div>

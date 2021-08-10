@@ -13,11 +13,9 @@ const reducer = (
         showMarker: false,
         windowWidth: window.innerWidth,
     },
-
-    action: any) => {
+    action: { type: string, payload: any }) => {
     switch (action.type) {
         case SET_UNITS: return { ...units, ...action.payload };
-
         default: return units;
     }
 }
