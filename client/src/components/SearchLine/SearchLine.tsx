@@ -30,7 +30,7 @@ export default function SearchLine(props: any) {
         const res = await getCityObj({ name: formData.query });
         const { success, data, error } = res
         if (error) return console.log({ error });
-        if (!success) return console.log(data);
+        if (!success || !data.data) return console.log({res});
         dispatch(setForm({ ...formData, cities: data.data }))
         if (data.data.length) {
             let centers: number[][] = [];
