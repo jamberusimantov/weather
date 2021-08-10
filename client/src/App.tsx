@@ -36,17 +36,16 @@ const App = () => {
         const getDefaultCity = async () => {
             console.log('get default City...');
             const res = await getCity({ name: "Tel Aviv" })
-            if (!res) return;
-            const { success, data, error } = res
-            if (error) return console.log({ error });
-            if (!success) return console.log({ data });
-            console.log({ res });
+            if (res?.status !== 200) return console.log({ res });
+            if (!res?.data?.success) return console.log({ data: res?.data });
             console.log('save default City...');
-            dispatch(setCity(data.data));
+            const city = res.data.data
+            if (!city) return console.log({ data: res?.data });
+            dispatch(setCity(city));
             dispatch(setUnits({
                 zoom: 13,
-                center: [data.coord?.lon, data.coord?.lat],
-                features: addMarkers([[data.coord?.lon, data.coord?.lat]]),
+                center: [city.coord?.lon, city.coord?.lat],
+                features: addMarkers([[city.coord?.lon, city.coord?.lat]]),
             }))
         }
         getDefaultCity();

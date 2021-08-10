@@ -1,9 +1,9 @@
 import axios from "axios";
-const baseURL = process.env.NODE_ENV === "production" ? 
-"https://weather-my-app.herokuapp.com" : "http://localhost:4201";
+const baseURL = process.env.NODE_ENV === "production" ?
+    "https://weather-my-app.herokuapp.com" : "http://localhost:4201";
 class Weather {
 
-    getCityObj = async (city: {name: string}) => {
+    getCityObj = async (city: { name: string }) => {
         const { name } = city;
         if (!name) return { success: false, data: 'city name is required' };
         const url = `${baseURL}/cities/cityObjSearch/${name}`;
@@ -13,7 +13,7 @@ class Weather {
             return { success: true, data: res.data }
         } catch (error) { return { success: false, error } }
     }
-    getCityWeather = async (city: {id: string}) => {
+    getCityWeather = async (city: { id: string }) => {
         const { id } = city;
         if (!id) return { success: false, data: 'city id is required' };
         const url = `${baseURL}/cities/cityWeatherSearch/${id}`;
@@ -35,10 +35,8 @@ class Weather {
         if (!name) return;
         const url_name = `${baseURL}/cities/city/${name}`
         try {
-            const res = await axios.get(url_name)
-            if (!res) return { success: false, data: {} }
-            return res.data
-        } catch (error) { return { success: false, error } }
+            return await axios.get(url_name)
+        } catch (error) { console.error(error) }
     }
     postCity = async (city: { name: string }) => {
         const { name } = city;
