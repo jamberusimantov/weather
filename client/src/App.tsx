@@ -44,8 +44,8 @@ const App = () => {
             dispatch(setCity(data.data));
             dispatch(setUnits({
                 zoom: 13,
-                center: [data.data.coord?.lon, data.data.coord?.lat],
-                features: addMarkers([[data.data.coord?.lon, data.data.coord?.lat]]),
+                center: [data.data?.coord?.lon, data.data?.coord?.lat],
+                features: addMarkers([[data.data?.coord?.lon, data.data?.coord?.lat]]),
             }))
         }
         getDefaultCity();
@@ -93,7 +93,7 @@ const App = () => {
                                 {window.location.pathname === '/' && windowWidth > 800 && <Grid
                                     item
                                     xs={12}
-                                    sm={ 4}>
+                                    sm={4}>
                                     <SearchOptions />
                                 </Grid>}
 
