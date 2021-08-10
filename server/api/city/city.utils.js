@@ -60,25 +60,22 @@ const fetchInterval = async() => {
     const days = 24 * hour;
     const interval = 5 * days;
 
-    const update = async() => {
-        try {
-            const response = await fetchNewCity(293397);
-            console.log({ fetchNewCity: response });
-            if (!response || !response.list) return console.log('fetchNewCity failure');
-            const response2 = await updateCityList(293397, response.list)
-            console.log({ updateCityList: response2 });
-            if (!response2 || !response2.id) return console.log('updateCityList failure');
-            return response2
-        } catch (error) { console.error(error); } finally {};
-    }
-
     try {
-        console.log('fetch default city - 5 days Interval');
-        const defaultCity = await update();
-        console.log({ update: defaultCity });
         setInterval(async() => {
+            const update = async() => {
+                try {
+                    const response = await fetchNewCity(293397);
+                    console.log({ fetchNewCity: response });
+                    if (!response || !response.list) return console.log('fetchNewCity failure');
+                    const response2 = await updateCityList(293397, response.list)
+                    console.log({ updateCityList: response2 });
+                    if (!response2 || !response2.id) return console.log('updateCityList failure');
+                    return response2
+                } catch (error) { console.error(error); } finally {};
+            }
+            console.log('fetch default city - 5 days Interval');
             const defaultCity = await update();
-            console.log({ update: defaultCity });
+            console.log({ fetch_default_City: defaultCity });
         }, interval)
 
     } catch (error) {

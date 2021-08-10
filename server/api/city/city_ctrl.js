@@ -48,6 +48,7 @@ const getCityWeather = async(req, res) => {
 
 
 const getCity = async(req, res) => {
+    return res.json('success')
     const city = req.params;
     if (!city) return failHandler(city, res, 'getCity')
     if (!validateCityName(city).isQuery) return failHandler('no city', res, 'getCity')
