@@ -13,7 +13,7 @@ import Brief from "./components/Brief";
 import WeatherMap from "./components/WeatherMap";
 import SearchOptions from "./components/SearchOptions";
 import SearchLine from "./components/SearchLine";
-import Loader from "./components/Loader";
+// import Loader from "./components/Loader";
 
 const App = () => {
     const dispatch = useDispatch();
@@ -21,7 +21,7 @@ const App = () => {
     const { getCity } = Weather;
     const classes = style();
     const unitsData = useSelector((state: any) => state.units);
-    const cityData = useSelector((state: any) => state.city);
+    // const cityData = useSelector((state: any) => state.city);
     const { zoom, center, features, showMarker, windowWidth } = unitsData;
 
     useEffect(() => {
