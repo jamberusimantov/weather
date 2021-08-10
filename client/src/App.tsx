@@ -6,9 +6,9 @@ import { style } from './style/style.app'
 import Header from './components/Header';
 import api from "./api";
 import { useDispatch, useSelector } from "react-redux";
-import { setCity } from "./store/actions/city.actions";
+// import { setCity } from "./store/actions/city.actions";
 import { setUnits } from "./store/actions/units.actions";
-import addMarkers from "./components/WeatherMap/Markers";
+// import addMarkers from "./components/WeatherMap/Markers";
 import Brief from "./components/Brief";
 import WeatherMap from "./components/WeatherMap";
 import SearchOptions from "./components/SearchOptions";
@@ -36,21 +36,22 @@ const App = () => {
         const getDefaultCity = async () => {
             console.log('get default City...');
             const res = await getCity({ name: "Tel Aviv" })
-            if (!res) return;
-            const { success, data, error } = res
-            if (error) return console.log({ error });
-            if (!success) return console.log({ res });
-            console.log({ city: data });
-            console.log('save default City...');
-            dispatch(setCity(data));
-            dispatch(setUnits({
-                zoom: 13,
-                center: [data.coord?.lon, data.coord?.lat],
-                features: addMarkers([[data.coord?.lon, data.coord?.lat]]),
-            }))
-        }
+            return console.log({ res });}
         getDefaultCity();
     }, [dispatch, getCity])
+
+    // if (!res) return;
+    // const { success, data, error } = res
+    // if (error) return console.log({ error });
+    // if (!success) return console.log({ res });
+    // console.log({ city: data });
+    // console.log('save default City...');
+    // dispatch(setCity(data));
+    // dispatch(setUnits({
+    //     zoom: 13,
+    //     center: [data.coord?.lon, data.coord?.lat],
+    //     features: addMarkers([[data.coord?.lon, data.coord?.lat]]),
+    // }))
 
 
     return (

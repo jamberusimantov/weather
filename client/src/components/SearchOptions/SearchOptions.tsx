@@ -20,12 +20,12 @@ export default function SearchOptions(props: any) {
             <Button
                 className={`${classes.unit} ${unitsData.name === 'Metric' && classes.current}`}
                 onClick={() => setUnit('Metric')}>
-                {windowWidth > 800 ? 'Metric' : ''} °C, m/s
+                {windowWidth > 900 ? 'Metric' : ''} °C
             </Button>
             <Button
                 className={`${classes.unit} ${unitsData.name === 'Imperial' && classes.current}`}
                 onClick={() => setUnit('Imperial')}>
-                {windowWidth > 800 ? 'Imperial' : ''} °F, mph
+                {windowWidth > 900 ? 'Imperial' : ''} °F
             </Button>
         </Paper>
     }</>)
