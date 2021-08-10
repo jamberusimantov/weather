@@ -36,8 +36,7 @@ const App = () => {
         const getDefaultCity = async () => {
             console.log('get default City...');
             const res = await getCity({ name: "Tel Aviv" })
-            if (res?.status !== 200) return console.log({ res });
-            if (!res?.data?.success) return console.log({ data: res?.data });
+            if (!res?.data?.success) return console.log({ res });
             console.log('save default City...');
             const city = res.data.data
             if (!city) return console.log({ data: res?.data });
