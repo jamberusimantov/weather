@@ -8,8 +8,8 @@ const express = require("express");
 const chalk = require("chalk");
 const db = require("./DB");
 const path = require("path");
-// const fs = require('fs')
-// const https = require('https')
+const fs = require('fs')
+const https = require('https')
 const city_router = require('./api/city/city_router')
 const { fetchInterval } = require('./api/city/city.utils')
 const PORT = process.env.PORT || 4201;
@@ -26,13 +26,12 @@ db.on("error", () => {
     console.log(chalk.red("Connection error"));
 });
 
-// const sslServer = https.createServer({
-//     key: fs.readFileSync(path.join(__dirname, "cert", "key.pem")),
-//     cert: fs.readFileSync(path.join(__dirname, "cert", "cert.pem"))
-// }, app)
+const sslServer = https.createServer({
+    key: fs.readFileSync(path.join(__dirname, "cert", "key.pem")),
+    cert: fs.readFileSync(path.join(__dirname, "cert", "cert.pem"))
+}, app)
 
-// sslServer
-app.listen(PORT, () => {
+sslServer.listen(PORT, () => {
     console.log(chalk.blue(`${packageJson.name} - ${packageJson.description}`));
     console.log(`${chalk.yellow("live and up on port")} ${chalk.red(PORT)}`);
 });

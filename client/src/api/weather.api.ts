@@ -1,6 +1,6 @@
 import axios from "axios";
 const baseURL = process.env.NODE_ENV === "production" ?
-    "http://weather-my-app.herokuapp.com" : "http://localhost:4201";
+    "https://weather-my-app.herokuapp.com" : "https://localhost:4201";
 class Weather {
 
     getCityObj = async (city: { name: string }) => {
