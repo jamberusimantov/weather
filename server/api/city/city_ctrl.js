@@ -4,11 +4,9 @@ const utils = require('./city.utils');
 const { successHandler, failHandler, errorHandler, fetchNewCity } = utils;
 const cityList = require('./city.list.json').list
 const { validateCityName, validateCityId } = validator;
-const clientUrl = process.env.NODE_ENV === "production" ?
-    "https://weather-my-app.herokuapp.com" : "http://localhost:3000";
 
 const getCityObj = async(req, res) => {
-    res.setHeader('Access-Control-Allow-Origin', clientUrl);
+    res.setHeader('Access-Control-Allow-Origin', '*');
     console.log('get City Obj');
     const city = req.params;
     let cityArr = [];
@@ -28,7 +26,7 @@ const getCityObj = async(req, res) => {
     } finally {}
 }
 const getCityWeather = async(req, res) => {
-    res.setHeader('Access-Control-Allow-Origin', clientUrl);
+    res.setHeader('Access-Control-Allow-Origin', '*');
     console.log('get City weather');
     const city = req.params;
     let cityArr = [];
@@ -43,7 +41,7 @@ const getCityWeather = async(req, res) => {
     } finally {}
 }
 const getCity = async(req, res) => {
-    res.setHeader('Access-Control-Allow-Origin', clientUrl);
+    res.setHeader('Access-Control-Allow-Origin', '*');
     const city = req.params;
     if (!city) return failHandler(city, res, 'getCity')
     if (!validateCityName(city).isQuery) return failHandler('no city', res, 'getCity')
