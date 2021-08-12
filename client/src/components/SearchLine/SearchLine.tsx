@@ -51,7 +51,7 @@ export default function SearchLine(props: any) {
     const getFlag = (country: string) => hasFlag(country) ?
         <img alt={`${country}`}
             className={classes.flag}
-            src={`http://purecatamphetamine.github.io/country-flag-icons/3x2/${country}.svg`} />
+            src={`https://purecatamphetamine.github.io/country-flag-icons/3x2/${country}.svg`} />
         : null;
 
 
