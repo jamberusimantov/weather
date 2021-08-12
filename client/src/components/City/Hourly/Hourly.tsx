@@ -47,7 +47,7 @@ const Hourly = (props: any) => {
                             <Grid item className={classes.listTd}>
                                 <img alt={''}
                                     className={classes.icon}
-                                    src={icon && `http://openweathermap.org/img/wn/${icon}@2x.png`} />
+                                    src={icon && `https://openweathermap.org/img/wn/${icon}@2x.png`} />
                             </Grid>
 
                             {windowWidth > 500 && (<Grid item className={classes.listTd}>
