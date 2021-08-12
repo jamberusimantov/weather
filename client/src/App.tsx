@@ -78,6 +78,7 @@ const App = () => {
                             container
                             spacing={3}
                             justifyContent='space-between'
+                            style={{ marginBottom: '30px' }}
                             alignItems='stretch'>
 
                             {/* city search */}

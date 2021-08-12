@@ -10,28 +10,28 @@ export default function TopBar(props?: any) {
 
     return (
         <AppBar
-            className={`${classes.appBar} appBar`}
+            className={classes.appBar}
             position='relative'
             color='inherit' >
-
             <div className={classes.homeBtnContainer}>
-                <a href='/' >
-                    <HomeOutlined className={classes.homeBtn} />
+                <a href='/' className={classes.homeBtn} >
+                    <HomeOutlined />
                 </a>
             </div>
-
-            <Typography
-                variant='h3'
-                align='center'
-                className={classes.heading}>
-                Weather
-            </Typography>
-            <img
-                src="/assets/home.png"
-                alt="logo"
-                className={classes.image}
-                height={`${clientHeight * 0.6}`}
-                width='auto' />
+            <div className={classes.title}>
+                <Typography
+                    variant='h3'
+                    align='center'
+                    className={classes.heading}>
+                    Weather
+                </Typography>
+                <img
+                    src="/assets/home.png"
+                    alt="logo"
+                    className={classes.image}
+                    height={`${clientHeight * .6}`}
+                    width='auto' />
+            </div>
             <Cloud />
         </AppBar>
     )

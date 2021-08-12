@@ -18,24 +18,25 @@ export const style = makeStyles(theme => ({
   appBar: {
     margin: '0 0 30px',
     borderRadius: 15,
-    display: 'flex',
-    flexDirection: 'row',
-    justifyContent: 'center',
-    alignItems: 'center',
     backgroundColor: colors.black,
     background,
-    border: `${colors.black} 3px solid`,
-    zIndex: 999,
+    border: `${colors.black} 3px solid`
+  },
+  title: {
+    display: 'flex',
+    flexFlow: 'row wrap',
+    justifyContent: 'center',
+    alignItems: 'center',
+
   },
   heading: {
-    color: colors.black,
+    color: colors.aero,
     fontSize: '2em',
   },
   image: {
     marginLeft: '15px',
   },
   homeBtn: {
-    fontSize: '3em',
     color: '#00BFFF',
     padding: theme.spacing(1),
     '&:hover': {
@@ -45,10 +46,11 @@ export const style = makeStyles(theme => ({
   },
   homeBtnContainer: {
     width: '100%',
+    height: '100%',
     position: 'absolute',
     display: 'flex',
     justifyContent: 'flex-end',
-    zIndex:1001,
+    alignItems: 'center',
   },
 
 

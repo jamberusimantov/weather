@@ -14,7 +14,7 @@ const FiveDays = (props: any) => {
 
 
     return (<>
-        <Paper className={`${classes.paperResult} ${classes.paper}`}>
+        <Paper className={classes.paper}>
             <h2>Five Days</h2>
             {React.Children.toArray(
                 five_days.filter((forecast: any) => {
